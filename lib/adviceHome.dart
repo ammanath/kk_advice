@@ -18,17 +18,27 @@ class AdviceHome extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(title: Text('KK Advice' , style: GoogleFonts.kalam(fontSize: 26, color: Colors.black),), 
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.home),
-            color: Colors.orange,
-            onPressed: () =>
-                Scrollable.ensureVisible(dataKey.currentContext)//Top
-          ),
-          ReviewButton(),
-          AboutButton(),
-        ]),
+        appBar: AppBar(
+            title: Text(
+              'KK Advice',
+              style: GoogleFonts.kalam(fontSize: 26, color: Colors.black),
+            ),
+            actions: <Widget>[
+              IconButton(
+                  icon: Icon(Icons.home),
+                  color: Colors.orange,
+                  onPressed: () =>
+                      Scrollable.ensureVisible(dataKey.currentContext) //Top
+                  ),
+              IconButton(
+                  icon: Icon(Icons.search),
+                  color: Colors.white,
+                  onPressed: () => {
+                        showSearch(context: context, delegate: DataSearch()),
+                      }),
+              ReviewButton(),
+              AboutButton(),
+            ]),
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
@@ -42,5 +52,29 @@ class AdviceHome extends StatelessWidget {
         backgroundColor: Colors.lightBlue[800],
       ),
     );
+  }
+}
+
+class DataSearch extends SearchDelegate<String> {
+  @override
+  List<Widget> buildActions(BuildContext context) {
+    return [IconButton(icon: Icon(Icons.clear), onPressed: () {})];
+  }
+
+  @override
+  Widget buildLeading(BuildContext contexntext) {
+    return IconButton(
+        icon: AnimatedIcon(icon: AnimatedIcons.menu_arrow, progress: transitionAnimation),
+        onPressed: () {});
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return null;
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    return null;
   }
 }

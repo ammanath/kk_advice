@@ -5,7 +5,94 @@ import 'package:kk_advice/itemData.dart';
 class DataValues {
   List<ItemData> getItemValues() {
 
-   
+   var cities = [
+      ItemData(
+          title: 'Cities',
+          primaryText: '',
+          secondaryText: '',
+          description: 'List of cities ',
+          refIcon: getRandomIcon(),
+          type: 'title'),
+      ItemData(
+          title: 'Cities',
+          primaryText: 'Pune',
+          secondaryText: '“ssss',
+          description: '',
+          refIcon: getRandomIcon(),
+          type: 'card'),
+          ItemData(
+          title: 'Cities',
+          primaryText: 'Mumbai',
+          secondaryText: '“ssss',
+          description: '',
+          refIcon: getRandomIcon(),
+          type: 'card'),
+          ItemData(
+          title: 'Cities',
+          primaryText: 'Patna',
+          secondaryText: '“ssss',
+          description: '',
+          refIcon: getRandomIcon(),
+          type: 'card'),
+          ItemData(
+          title: 'Cities',
+          primaryText: 'Trichur',
+          secondaryText: '“ssss',
+          description: '',
+          refIcon: getRandomIcon(),
+          type: 'card'),
+          ItemData(
+          title: 'Cities',
+          primaryText: 'Kochi',
+          secondaryText: '“ssss',
+          description: '',
+          refIcon: getRandomIcon(),
+          type: 'card'),
+          ItemData(
+          title: 'Cities',
+          primaryText: 'Delhi',
+          secondaryText: '“ssss',
+          description: '',
+          refIcon: getRandomIcon(),
+          type: 'card'),
+          ItemData(
+          title: 'Cities',
+          primaryText: 'Chennai',
+          secondaryText: '“ssss',
+          description: '',
+          refIcon: getRandomIcon(),
+          type: 'card'),
+          ItemData(
+          title: 'Cities',
+          primaryText: 'Patna',
+          secondaryText: '“ssss',
+          description: '',
+          refIcon: getRandomIcon(),
+          type: 'card'),
+          ItemData(
+          title: 'Cities',
+          primaryText: 'Kota',
+          secondaryText: '“ssss',
+          description: '',
+          refIcon: getRandomIcon(),
+          type: 'card'),
+          ItemData(
+          title: 'Cities',
+          primaryText: 'Nashik',
+          secondaryText: '“ssss',
+          description: '',
+          refIcon: getRandomIcon(),
+          type: 'card'),
+          ItemData(
+          title: 'Cities',
+          primaryText: 'Nagpur',
+          secondaryText: '“ssss',
+          description: '',
+          refIcon: getRandomIcon(),
+          type: 'card'),
+
+    ];
+
     var dummy = [
       ItemData(
           title: 'TTT',
@@ -23,10 +110,10 @@ class DataValues {
           type: 'card'),
     ];
 
-    return dummy;
+    return cities;
   }
 
-  Icon getRandomIcon([bool randomColor]) {
+  static Icon getRandomIcon([bool randomColor]) {
     List<Color> clrs = [
       Colors.red,
       Colors.amber,

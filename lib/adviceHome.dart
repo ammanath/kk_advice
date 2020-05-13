@@ -8,10 +8,12 @@ import 'package:kk_advice/reviewButton.dart';
 
 class AdviceHome extends StatelessWidget {
   final dataKey = new GlobalKey();
+  
+
   @override
   Widget build(BuildContext context) {
-    List<ItemData> listOfItems = DataValues().getItemValues();
-
+    
+    final List<ItemData> listOfItems = DataValues().getItemValues();
     var dlw = DataListWidget(
       itemDataList: listOfItems,
     );
@@ -56,6 +58,57 @@ class AdviceHome extends StatelessWidget {
 }
 
 class DataSearch extends SearchDelegate<String> {
+  final cities = [
+    'Mumbai',
+    'Crawford',
+    'Kadappa'
+    'Puri',
+    'Trichur',
+    'Jammu',
+    'Delhi',
+    'Indore',
+    'Patna',
+    'Vizag',
+    'Chennai',
+    'Calcutta',
+    'Pune',
+    'Ottapalam',
+    'Sangamner',
+    'Nashik',
+    'Thane',
+    'Noida',
+    'Bangalore',
+    'Bhopal',
+    'Kochi',
+    'Ahemdabad',
+    'Kota',
+    'Lonavala'
+  ];
+
+  final recentCities = ['Pune',
+    'Vizag',
+    'Chennai',
+    'Calcutta',];
+
+// final recentCities = [
+//       ItemData(
+//           title: 'TTT',
+//           primaryText: '',
+//           secondaryText: '',
+//           description: 'ddd ',
+//           refIcon: DataValues.getRandomIcon(),
+//           type: 'title'),
+//       ItemData(
+//           title: 'TTT',
+//           primaryText: 'ppp',
+//           secondaryText: '“ssss',
+//           description: '',
+//           refIcon: DataValues.getRandomIcon(),
+//           type: 'card'),
+//     ];
+
+  
+
   @override
   List<Widget> buildActions(BuildContext context) {
     return [IconButton(icon: Icon(Icons.clear), onPressed: () {})];
@@ -75,6 +128,13 @@ class DataSearch extends SearchDelegate<String> {
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    return null;
+    final suggestionList = query.isEmpty?recentCities: cities;//DataValues().getItemValues();
+
+    // return ListView.builder(itemBuilder: (context, index)=>ListTile(leading:Icon(Icons.location_city),title: Text(suggestionList[index].primaryText.toString()), 
+    //     ),
+    //     itemCount: suggestionList.length,);
+        return ListView.builder(itemBuilder: (context, index)=>ListTile(leading:Icon(Icons.location_city),title: Text(suggestionList[index]), 
+        ),
+        itemCount: suggestionList.length,);
   }
 }

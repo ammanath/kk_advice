@@ -8,11 +8,9 @@ import 'package:kk_advice/reviewButton.dart';
 
 class AdviceHome extends StatelessWidget {
   final dataKey = new GlobalKey();
-  
 
   @override
   Widget build(BuildContext context) {
-    
     final List<ItemData> listOfItems = DataValues().getItemValues();
     var dlw = DataListWidget(
       itemDataList: listOfItems,
@@ -62,7 +60,7 @@ class DataSearch extends SearchDelegate<String> {
     'Mumbai',
     'Crawford',
     'Kadappa'
-    'Puri',
+        'Puri',
     'Trichur',
     'Jammu',
     'Delhi',
@@ -85,10 +83,12 @@ class DataSearch extends SearchDelegate<String> {
     'Lonavala'
   ];
 
-  final recentCities = ['Pune',
+  final recentCities = [
+    'Pune',
     'Vizag',
     'Chennai',
-    'Calcutta',];
+    'Calcutta',
+  ];
 
 // final recentCities = [
 //       ItemData(
@@ -107,34 +107,45 @@ class DataSearch extends SearchDelegate<String> {
 //           type: 'card'),
 //     ];
 
-  
-
   @override
   List<Widget> buildActions(BuildContext context) {
-    return [IconButton(icon: Icon(Icons.clear), onPressed: () {})];
+    return [IconButton(icon: Icon(Icons.clear), 
+    onPressed: () {query="";})];
   }
 
   @override
-  Widget buildLeading(BuildContext contexntext) {
+  Widget buildLeading(BuildContext context) {
     return IconButton(
-        icon: AnimatedIcon(icon: AnimatedIcons.menu_arrow, progress: transitionAnimation),
-        onPressed: () {});
+        icon: AnimatedIcon(
+            icon: AnimatedIcons.menu_arrow, progress: transitionAnimation),
+        onPressed: () {
+          close(context, null);
+        });
   }
-
+  
   @override
   Widget buildResults(BuildContext context) {
-    return null;
+    return Text(query);
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    final suggestionList = query.isEmpty?recentCities: cities;//DataValues().getItemValues();
+    final suggestionList =
+        query.isEmpty ? recentCities : 
+        cities.where((element) => element.toLowerCase().startsWith(query.toLowerCase())).toList(); //DataValues().getItemValues();
 
-    // return ListView.builder(itemBuilder: (context, index)=>ListTile(leading:Icon(Icons.location_city),title: Text(suggestionList[index].primaryText.toString()), 
+    // return ListView.builder(itemBuilder: (context, index)=>ListTile(leading:Icon(Icons.location_city),title: Text(suggestionList[index].primaryText.toString()),
     //     ),
     //     itemCount: suggestionList.length,);
-        return ListView.builder(itemBuilder: (context, index)=>ListTile(leading:Icon(Icons.location_city),title: Text(suggestionList[index]), 
-        ),
-        itemCount: suggestionList.length,);
+    return ListView.builder(
+      itemBuilder: (context, index) => ListTile(
+        onTap: (){
+          showResults(context);
+        },
+        leading: Icon(Icons.location_city),
+        title: Text(suggestionList[index]),
+      ),
+      itemCount: suggestionList.length,
+    );
   }
 }

@@ -8,7 +8,6 @@ import 'package:kk_advice/reviewButton.dart';
 
 class AdviceHome extends StatelessWidget {
   final dataKey = new GlobalKey();
-
   @override
   Widget build(BuildContext context) {
     final List<ItemData> listOfItems = DataValues().getItemValues();
@@ -34,7 +33,7 @@ class AdviceHome extends StatelessWidget {
                   icon: Icon(Icons.search),
                   color: Colors.white,
                   onPressed: () => {
-                        showSearch(context: context, delegate: DataSearch()),
+                        showSearch(context: context, delegate: DataSearchDelegate()),
                       }),
               ReviewButton(),
               AboutButton(),
@@ -55,7 +54,7 @@ class AdviceHome extends StatelessWidget {
   }
 }
 
-class DataSearch extends SearchDelegate<String> {
+class DataSearchDelegate extends SearchDelegate<String> {
   final cities = [
     'Mumbai',
     'Crawford',
@@ -109,7 +108,7 @@ class DataSearch extends SearchDelegate<String> {
 
   @override
   List<Widget> buildActions(BuildContext context) {
-    return [IconButton(icon: Icon(Icons.clear), 
+    return [IconButton(icon: Icon(Icons.cancel), 
     onPressed: () {query="";})];
   }
 
@@ -125,7 +124,11 @@ class DataSearch extends SearchDelegate<String> {
   
   @override
   Widget buildResults(BuildContext context) {
+    
+    print(context.widget.toString() + query );
+  
     return Text(query);
+
   }
 
   @override
@@ -148,4 +151,11 @@ class DataSearch extends SearchDelegate<String> {
       itemCount: suggestionList.length,
     );
   }
+
+@override
+  ThemeData appBarTheme(BuildContext context) {
+    final theme = Theme.of(context);
+    return theme;
+  }
+
 }

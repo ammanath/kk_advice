@@ -32,9 +32,13 @@ class AdviceHome extends StatelessWidget {
               IconButton(
                   icon: Icon(Icons.search),
                   color: Colors.white,
-                  onPressed: () => {
-                        showSearch(context: context, delegate: DataSearchDelegate()),
-                      }),
+                  onPressed: () async {
+                        final String selected = await showSearch<String>(context: context, delegate: DataSearchDelegate());
+                        if(selected!=null){
+                          print("Item selected is: $selected");
+                        }
+                  },
+                  ),
               ReviewButton(),
               AboutButton(),
             ]),
@@ -79,7 +83,11 @@ class DataSearchDelegate extends SearchDelegate<String> {
     'Kochi',
     'Ahemdabad',
     'Kota',
-    'Lonavala'
+    'Lonavala',
+    'Daulatabad',
+    'Dhanbad',
+    'Dhule',
+    'Dheradun'
   ];
 
   final recentCities = [
@@ -127,7 +135,7 @@ class DataSearchDelegate extends SearchDelegate<String> {
     
     print(context.widget.toString() + query );
   
-    return Text(query);
+    return Text('Searched for $query');
 
   }
 
@@ -143,7 +151,9 @@ class DataSearchDelegate extends SearchDelegate<String> {
     return ListView.builder(
       itemBuilder: (context, index) => ListTile(
         onTap: (){
-          showResults(context);
+          query = suggestionList[index];
+          close(context, suggestionList[index]);
+          //showResults(context);
         },
         leading: Icon(Icons.location_city),
         title: Text(suggestionList[index]),

@@ -30,15 +30,16 @@ class AdviceHome extends StatelessWidget {
                       Scrollable.ensureVisible(dataKey.currentContext) //Top
                   ),
               IconButton(
-                  icon: Icon(Icons.search),
-                  color: Colors.white,
-                  onPressed: () async {
-                        final String selected = await showSearch<String>(context: context, delegate: DataSearchDelegate());
-                        if(selected!=null){
-                          print("Item selected is: $selected");
-                        }
-                  },
-                  ),
+                icon: Icon(Icons.find_in_page),
+                color: Colors.white,
+                onPressed: () async {
+                  final ItemData selected = await showSearch<ItemData>(
+                      context: context, delegate: DataSearch());
+                  if (selected != null) {
+                    print("Item selected is: $selected");
+                  }
+                },
+              ),
               ReviewButton(),
               AboutButton(),
             ]),
@@ -58,66 +59,45 @@ class AdviceHome extends StatelessWidget {
   }
 }
 
-class DataSearchDelegate extends SearchDelegate<String> {
-  final cities = [
-    'Mumbai',
-    'Crawford',
-    'Kadappa'
-        'Puri',
-    'Trichur',
-    'Jammu',
-    'Delhi',
-    'Indore',
-    'Patna',
-    'Vizag',
-    'Chennai',
-    'Calcutta',
-    'Pune',
-    'Ottapalam',
-    'Sangamner',
-    'Nashik',
-    'Thane',
-    'Noida',
-    'Bangalore',
-    'Bhopal',
-    'Kochi',
-    'Ahemdabad',
-    'Kota',
-    'Lonavala',
-    'Daulatabad',
-    'Dhanbad',
-    'Dhule',
-    'Dheradun'
-  ];
+class DataSearch extends SearchDelegate<ItemData> {
+  final List<ItemData> cities = DataValues()
+      .getItemValues()
+      .where((item) => item.type != 'title')
+      .toList();
 
-  final recentCities = [
-    'Pune',
-    'Vizag',
-    'Chennai',
-    'Calcutta',
+  final List<ItemData> recentCities = [
+    ItemData(
+        title: 'Cities',
+        primaryText: 'Pune',
+        secondaryText: '“ssss',
+        description: '',
+        refIcon: DataValues.getRandomIcon(),
+        type: 'card'),
+    ItemData(
+        title: 'Cities',
+        primaryText: 'Mumbai',
+        secondaryText: '“ssss',
+        description: '',
+        refIcon: DataValues.getRandomIcon(),
+        type: 'card'),
+    ItemData(
+        title: 'Cities',
+        primaryText: 'Patna',
+        secondaryText: '“ssss',
+        description: '',
+        refIcon: DataValues.getRandomIcon(),
+        type: 'card'),
   ];
-
-// final recentCities = [
-//       ItemData(
-//           title: 'TTT',
-//           primaryText: '',
-//           secondaryText: '',
-//           description: 'ddd ',
-//           refIcon: DataValues.getRandomIcon(),
-//           type: 'title'),
-//       ItemData(
-//           title: 'TTT',
-//           primaryText: 'ppp',
-//           secondaryText: '“ssss',
-//           description: '',
-//           refIcon: DataValues.getRandomIcon(),
-//           type: 'card'),
-//     ];
 
   @override
   List<Widget> buildActions(BuildContext context) {
-    return [IconButton(icon: Icon(Icons.cancel), 
-    onPressed: () {query="";})];
+    return [
+      IconButton(
+          icon: Icon(Icons.cancel),
+          onPressed: () {
+            query = "";
+          })
+    ];
   }
 
   @override
@@ -129,43 +109,46 @@ class DataSearchDelegate extends SearchDelegate<String> {
           close(context, null);
         });
   }
-  
+
   @override
   Widget buildResults(BuildContext context) {
-    
-    print(context.widget.toString() + query );
-  
-    return Text('Searched for $query');
+    print(context.widget.toString() + query);
 
+    return Text('Searched for $query');
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    final suggestionList =
-        query.isEmpty ? recentCities : 
-        cities.where((element) => element.toLowerCase().startsWith(query.toLowerCase())).toList(); //DataValues().getItemValues();
-
-    // return ListView.builder(itemBuilder: (context, index)=>ListTile(leading:Icon(Icons.location_city),title: Text(suggestionList[index].primaryText.toString()),
-    //     ),
-    //     itemCount: suggestionList.length,);
-    return ListView.builder(
-      itemBuilder: (context, index) => ListTile(
-        onTap: (){
-          query = suggestionList[index];
-          close(context, suggestionList[index]);
-          //showResults(context);
-        },
-        leading: Icon(Icons.location_city),
-        title: Text(suggestionList[index]),
-      ),
-      itemCount: suggestionList.length,
+    final List<ItemData> suggestionList = query.isEmpty
+        ? recentCities
+        : cities
+            .where((element) => element.primaryText
+                .toLowerCase()
+                .startsWith(query.toLowerCase()))
+            .toList(); //DataValues().getItemValues();
+    var dlw = DataListWidget(
+      itemDataList: suggestionList,
     );
+
+    return dlw;
+
+    // return ListView.builder(
+    //   itemBuilder: (context, index) => ListTile(
+    //     onTap: () {
+    //       query = suggestionList[index].primaryText;
+    //       close(context, suggestionList[index]);
+    //       //showResults(context);
+    //     },
+    //     leading: Icon(Icons.location_city),
+    //     title: Text(suggestionList[index].primaryText),
+    //   ),
+    //   itemCount: suggestionList.length,
+    // );
   }
 
-@override
+  @override
   ThemeData appBarTheme(BuildContext context) {
     final theme = Theme.of(context);
     return theme;
   }
-
 }

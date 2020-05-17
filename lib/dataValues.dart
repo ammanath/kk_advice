@@ -4,8 +4,7 @@ import 'package:kk_advice/itemData.dart';
 
 class DataValues {
   List<ItemData> getItemValues() {
-
-   var cities = [
+    var cities = [
       ItemData(
           title: 'Cities',
           primaryText: '',
@@ -20,77 +19,76 @@ class DataValues {
           description: '',
           refIcon: getRandomIcon(),
           type: 'card'),
-          ItemData(
+      ItemData(
           title: 'Cities',
           primaryText: 'Mumbai',
           secondaryText: '“ssss',
           description: '',
           refIcon: getRandomIcon(),
           type: 'card'),
-          ItemData(
+      ItemData(
           title: 'Cities',
           primaryText: 'Patna',
           secondaryText: '“ssss',
           description: '',
           refIcon: getRandomIcon(),
           type: 'card'),
-          ItemData(
+      ItemData(
           title: 'Cities',
           primaryText: 'Trichur',
           secondaryText: '“ssss',
           description: '',
           refIcon: getRandomIcon(),
           type: 'card'),
-          ItemData(
+      ItemData(
           title: 'Cities',
           primaryText: 'Kochi',
           secondaryText: '“ssss',
           description: '',
           refIcon: getRandomIcon(),
           type: 'card'),
-          ItemData(
+      ItemData(
           title: 'Cities',
           primaryText: 'Delhi',
           secondaryText: '“ssss',
           description: '',
           refIcon: getRandomIcon(),
           type: 'card'),
-          ItemData(
+      ItemData(
           title: 'Cities',
           primaryText: 'Chennai',
           secondaryText: '“ssss',
           description: '',
           refIcon: getRandomIcon(),
           type: 'card'),
-          ItemData(
+      ItemData(
           title: 'Cities',
           primaryText: 'Patna',
           secondaryText: '“ssss',
           description: '',
           refIcon: getRandomIcon(),
           type: 'card'),
-          ItemData(
+      ItemData(
           title: 'Cities',
           primaryText: 'Kota',
           secondaryText: '“ssss',
           description: '',
           refIcon: getRandomIcon(),
           type: 'card'),
-          ItemData(
+      ItemData(
           title: 'Cities',
           primaryText: 'Nashik',
           secondaryText: '“ssss',
           description: '',
           refIcon: getRandomIcon(),
           type: 'card'),
-          ItemData(
+      ItemData(
           title: 'Cities',
           primaryText: 'Nagpur',
           secondaryText: '“ssss',
           description: '',
           refIcon: getRandomIcon(),
           type: 'card'),
-
     ];
 
     var dummy = [

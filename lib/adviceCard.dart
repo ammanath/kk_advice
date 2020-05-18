@@ -24,7 +24,7 @@ class AdviceCardWidget extends StatelessWidget {
               title: Text.rich(
                 TextSpan(
                   text: itemData.primaryText,
-                  style: TextStyle(fontSize: 25, color: Colors.black),
+                  style: TextStyle(fontSize: 16, color: Colors.black),
                   children: [TextSpan(
                     text:' ' + itemData.secondaryText ,
                     style: secondaryStyle)],

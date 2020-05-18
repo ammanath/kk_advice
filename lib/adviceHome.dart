@@ -65,30 +65,6 @@ class DataSearch extends SearchDelegate<ItemData> {
       .where((item) => item.type != 'title')
       .toList();
 
-  final List<ItemData> recentCities = [
-    ItemData(
-        title: 'Cities',
-        primaryText: 'Pune',
-        secondaryText: '“ssss',
-        description: '',
-        refIcon: DataValues.getRandomIcon(),
-        type: 'card'),
-    ItemData(
-        title: 'Cities',
-        primaryText: 'Mumbai',
-        secondaryText: '“ssss',
-        description: '',
-        refIcon: DataValues.getRandomIcon(),
-        type: 'card'),
-    ItemData(
-        title: 'Cities',
-        primaryText: 'Patna',
-        secondaryText: '“ssss',
-        description: '',
-        refIcon: DataValues.getRandomIcon(),
-        type: 'card'),
-  ];
-
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
@@ -120,17 +96,17 @@ class DataSearch extends SearchDelegate<ItemData> {
   @override
   Widget buildSuggestions(BuildContext context) {
     final List<ItemData> suggestionList = query.isEmpty
-        ? recentCities
+        ? cities.sublist(0, cities.length~/6 + 1)
         : cities
             .where((element) => element.primaryText
                 .toLowerCase()
-                .startsWith(query.toLowerCase()))
-            .toList(); //DataValues().getItemValues();
+                .contains(query.toLowerCase()))
+            ?.toList(); 
     var dlw = DataListWidget(
       itemDataList: suggestionList,
     );
 
-    return dlw;
+    return SingleChildScrollView(child: dlw);
 
     // return ListView.builder(
     //   itemBuilder: (context, index) => ListTile(

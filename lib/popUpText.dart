@@ -50,7 +50,7 @@ class DisplayWidget extends StatelessWidget {
       textStyle: GoogleFonts.vt323(
         color: Colors.blue,
         letterSpacing: .5,
-        fontSize: dataText.type == 'title' ? 22 : 32,
+        fontSize: dataText.type == 'title' ? 22 : 22,
       ),
       displayFullTextOnTap: true,
       stopPauseOnTap: true,

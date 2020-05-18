@@ -16,34 +16,27 @@ class DataListWidget extends StatelessWidget {
     List<Widget> widgets = [];
     String title = '';
     var dataCardWidget;
-    var last = itemDataList.last;
-    itemDataList.forEach((element) {
-      if (title == '') {
-        title = element.title;
-      }
-      if (title == element.title) {
-        temp.add(element);
-      } 
-      if ((title != element.title) || element == last) {
-        dataCardWidget = DataCardWidget(itemList: temp);
-        widgets.add(dataCardWidget);
-        temp=[];
-        title = element.title;       
-        temp.add(element);
-      }
-    });
-
+    if (itemDataList != null && itemDataList.length > 0) {
+      var last = itemDataList.last;
+      itemDataList.forEach((element) {
+        if (title == '') {
+          title = element.title;
+        }
+        if (title == element.title) {
+          temp.add(element);
+        }
+        if ((title != element.title) || element == last) {
+          dataCardWidget = DataCardWidget(itemList: temp);
+          widgets.add(dataCardWidget);
+          temp = [];
+          title = element.title;
+          temp.add(element);
+        }
+      });
+    }
     return Column(
       children: widgets,
     );
   }
 
-  Iterable<Widget> convertToWidgets(List<ItemData> temp) {
-    List<Widget> li = [];
-    temp.forEach((element) {
-      li.add(Text(
-          element.primaryText == '' ? element.title : element.primaryText));
-    });
-    return li;
-  }
 }

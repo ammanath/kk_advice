@@ -19,8 +19,9 @@ class AboutButton extends StatelessWidget {
 
   void showAboutDialog(BuildContext context) {
     var textAbout =
-        "KK 68 bits of life advice";
-    String email = "\nkkapp@ammanath.com";
+        "KK 68 bits of life advice \n";
+        String moreDetails = 'More Details: https://kk.org/thetechnium/68-bits-of-unsolicited-advice/';
+    String email = "\nFeedback: kkapp@ammanath.com";
     String thanks =  "\nThanks for trying my app! ";
     String signature = "\n\n- Brijesh";
     showDialog(
@@ -43,15 +44,19 @@ class AboutButton extends StatelessWidget {
                 children: [
                   TextSpan(
                     text: textAbout.substring(1),
-                    style: GoogleFonts.kalam(fontSize: 16, color: Colors.black54),
+                    style: GoogleFonts.kalam(fontSize: 12, color: Colors.black54),
+                  ),
+                  TextSpan(
+                    text: moreDetails,
+                    style: GoogleFonts.kalam(fontSize: 12, color: Colors.black54),
                   ),
                   TextSpan(
                     text: email,
-                    style: GoogleFonts.marvel(fontSize: 20, color: Colors.pink, ),
+                    style: GoogleFonts.marvel(fontSize: 12, color: Colors.pink, ),
                   ),
                   TextSpan(
                     text: thanks,
-                    style: GoogleFonts.kalam(fontSize: 16, color: Colors.black54),
+                    style: GoogleFonts.kalam(fontSize: 12, color: Colors.black54),
                   ),
                   TextSpan(
                     text: signature,

@@ -5,13 +5,13 @@ import 'package:kk_advice/itemData.dart';
 class DataValues {
   List<ItemData> getItemValues() {
     var advice = [
-      ItemData(
-          title: 'Advice',
-          primaryText: '',
-          secondaryText: '',
-          description: '68 Bits of Unsolicited Advice',
-          refIcon: getRandomIcon(),
-          type: 'title'),
+      // ItemData(
+      //     title: 'Advice',
+      //     primaryText: '',
+      //     secondaryText: '',
+      //     description: '68 Bits of Unsolicited Advice',
+      //     refIcon: getRandomIcon(),
+      //     type: 'title'),
       ItemData(
           title: 'Advice',
           primaryText: 'Learn how to learn from those you disagree with, or even offend you. See if you can find the truth in what they believe.',

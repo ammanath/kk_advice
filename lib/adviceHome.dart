@@ -96,7 +96,7 @@ class DataSearch extends SearchDelegate<ItemData> {
   @override
   Widget buildSuggestions(BuildContext context) {
     final List<ItemData> suggestionList = query.isEmpty
-        ? cities.sublist(0, cities.length~/6 + 1)
+        ? cities.sublist(5, 8)
         : cities
             .where((element) => element.primaryText
                 .toLowerCase()

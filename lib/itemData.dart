@@ -5,7 +5,7 @@ class ItemData {
   String primaryText;
   String secondaryText;
   String description;
-  Icon refIcon;
+  Widget refIcon;
   String refUrl;
   String type;
 

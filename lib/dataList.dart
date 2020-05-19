@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kk_advice/dataCard.dart';
 import 'package:kk_advice/itemData.dart';
+import 'package:rounded_letter/rounded_letter.dart';
 
 class DataListWidget extends StatelessWidget {
   DataListWidget({
@@ -18,11 +19,13 @@ class DataListWidget extends StatelessWidget {
     var dataCardWidget;
     if (itemDataList != null && itemDataList.length > 0) {
       var last = itemDataList.last;
+      var count =1;
       itemDataList.forEach((element) {
         if (title == '') {
           title = element.title;
         }
         if (title == element.title) {
+          element.refIcon = RoundedLetter.withRedCircle('${count++}',40,20);
           temp.add(element);
         }
         if ((title != element.title) || element == last) {

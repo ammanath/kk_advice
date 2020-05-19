@@ -31,7 +31,7 @@ class DataValues {
           primaryText: 'Always demand a deadline. A deadline weeds out the extraneous and the ordinary. It prevents you from trying to make it perfect, so you have to make it different. Different is better.',
           secondaryText: '',
           description: '',
-          refIcon: getRandomIcon(),
+          refIcon: getRandomIcon(true),
           type: 'card'),
           ItemData(
           title: 'Advice',
@@ -45,7 +45,7 @@ class DataValues {
           primaryText: 'Being able to listen well is a superpower. While listening to someone you love keep asking them “Is there more?”, until there is no more.',
           secondaryText: '',
           description: '',
-          refIcon: getRandomIcon(),
+          refIcon: getRandomIcon(true),
           type: 'card'),
           ItemData(
           title: 'Advice',
@@ -66,7 +66,7 @@ class DataValues {
           primaryText: 'Treating a person to a meal never fails, and is so easy to do. It’s powerful with old friends and a great way to make new friends.',
           secondaryText: '',
           description: '',
-          refIcon: getRandomIcon(),
+          refIcon: getRandomIcon(true),
           type: 'card'),
           ItemData(
           title: 'Advice',
@@ -94,7 +94,7 @@ class DataValues {
           primaryText: 'Pros are just amateurs who know how to gracefully recover from their mistakes.',
           secondaryText: '',
           description: '',
-          refIcon: getRandomIcon(),
+          refIcon: getRandomIcon(true),
           type: 'card'),
           ItemData(
           title: 'Advice',

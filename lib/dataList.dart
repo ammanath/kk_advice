@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kk_advice/dataCard.dart';
+import 'package:kk_advice/dataValues.dart';
 import 'package:kk_advice/itemData.dart';
 import 'package:rounded_letter/rounded_letter.dart';
 
@@ -25,21 +26,25 @@ class DataListWidget extends StatelessWidget {
           title = element.title;
         }
         if (title == element.title) {
-          element.refIcon = RoundedLetter.withRedCircle('${count++}',40,20);
-          temp.add(element);
-        }
-        if ((title != element.title) || element == last) {
-          dataCardWidget = DataCardWidget(itemList: temp);
-          widgets.add(dataCardWidget);
-          temp = [];
-          title = element.title;
-          temp.add(element);
-        }
-      });
-    }
-    return Column(
-      children: widgets,
-    );
-  }
+          element.refIcon = DataValues.buildCountIcon(count++, element);
+                    temp.add(element);
+                  }
+                  if ((title != element.title) || element == last) {
+                    dataCardWidget = DataCardWidget(itemList: temp);
+                    widgets.add(dataCardWidget);
+                    temp = [];
+                    title = element.title;
+                    temp.add(element);
+                  }
+                });
+              }
+              return Column(
+                children: widgets,
+              );
+            }
+
+            
+          
+            
 
 }

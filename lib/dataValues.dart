@@ -1,17 +1,11 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:kk_advice/itemData.dart';
+import 'package:rounded_letter/rounded_letter.dart';
 
 class DataValues {
   List<ItemData> getItemValues() {
     var advice = [
-      // ItemData(
-      //     title: 'Advice',
-      //     primaryText: '',
-      //     secondaryText: '',
-      //     description: '68 Bits of Unsolicited Advice',
-      //     refIcon: getRandomIcon(),
-      //     type: 'title'),
       ItemData(
           title: 'Advice',
           primaryText:
@@ -49,7 +43,7 @@ class DataValues {
               'Being able to listen well is a superpower. While listening to someone you love keep asking them “Is there more?”, until there is no more.',
           secondaryText: '',
           description: '',
-          refIcon: getRandomIcon(true),
+          refIcon: getRandomIcon(),
           type: 'card'),
       ItemData(
           title: 'Advice',
@@ -135,7 +129,7 @@ class DataValues {
           primaryText: 'Don’t be the best. Be the only.',
           secondaryText: '',
           description: '',
-          refIcon: getRandomIcon(),
+          refIcon: getRandomIcon(true),
           type: 'card'),
       ItemData(
           title: 'Advice',
@@ -166,7 +160,7 @@ class DataValues {
           primaryText: 'Promptness is a sign of respect.',
           secondaryText: '',
           description: '',
-          refIcon: getRandomIcon(),
+          refIcon: getRandomIcon(true),
           type: 'card'),
       ItemData(
           title: 'Advice',
@@ -213,7 +207,7 @@ class DataValues {
               'The Golden Rule will never fail you. It is the foundation of all other virtues.',
           secondaryText: '',
           description: '',
-          refIcon: getRandomIcon(),
+          refIcon: getRandomIcon(true),
           type: 'card'),
       ItemData(
           title: 'Advice',
@@ -268,7 +262,7 @@ class DataValues {
               'Separate the processes of creation from improving. You can’t write and edit, or sculpt and polish, or make and analyze at the same time. If you do, the editor stops the creator. While you invent, don’t select. While you sketch, don’t inspect. While you write the first draft, don’t reflect. At the start, the creator mind must be unleashed from judgement.',
           secondaryText: '',
           description: '',
-          refIcon: getRandomIcon(),
+          refIcon: getRandomIcon(true),
           type: 'card'),
       ItemData(
           title: 'Advice',
@@ -379,7 +373,7 @@ class DataValues {
               'Anything real begins with the fiction of what could be. Imagination is therefore the most potent force in the universe, and a skill you can get better at. It’s the one skill in life that benefits from ignoring what everyone else knows.',
           secondaryText: '',
           description: '',
-          refIcon: getRandomIcon(),
+          refIcon: getRandomIcon(true),
           type: 'card'),
       ItemData(
           title: 'Advice',
@@ -512,7 +506,7 @@ class DataValues {
               'Learn how to take a 20-minute power nap without embarrassment.',
           secondaryText: '',
           description: '',
-          refIcon: getRandomIcon(),
+          refIcon: getRandomIcon(true),
           type: 'card'),
       ItemData(
           title: 'Advice',
@@ -544,7 +538,7 @@ class DataValues {
               'The universe is conspiring behind your back to make you a success. This will be much easier to do if you embrace this pronoia.',
           secondaryText: '',
           description: '',
-          refIcon: getRandomIcon(),
+          refIcon: getRandomIcon(true),
           type: 'card'),
     ];
 
@@ -585,6 +579,20 @@ class DataValues {
       IconData(codePoint, fontFamily: 'MaterialIcons'),
       color: colr,
     );
-    return icon;
+    if(randomColor==true){
+      return icon;
+    }else{
+      return null;
+    }
+  }
+
+  static Widget buildCountIcon(int i, ItemData element) {
+    var wd;
+    if(element.refIcon==null){
+    wd = RoundedLetter.withRedCircle('$i', 30, 15);
+    }else{
+      wd = element.refIcon;
+    }
+    return wd;
   }
 }

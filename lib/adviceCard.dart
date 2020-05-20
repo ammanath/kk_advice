@@ -17,7 +17,7 @@ class AdviceCardWidget extends StatelessWidget {
       color: Colors.black45,
     );
     return Padding(
-      padding: const EdgeInsets.all(4.0),
+      padding: const EdgeInsets.all(1.0),
       child: Card(
         child: Container(
           child: ListTile(
@@ -25,7 +25,7 @@ class AdviceCardWidget extends StatelessWidget {
               title: Text.rich(
                 TextSpan(
                   text: itemData.primaryText,
-                  style: GoogleFonts.kalam(fontSize: 20, color: Colors.black, ),//TextStyle(fontSize: 16, color: Colors.black),
+                  style: GoogleFonts.kalam(fontSize: 14, color: Colors.black, ),//TextStyle(fontSize: 16, color: Colors.black),
                   children: [TextSpan(
                     text:' ' + itemData.secondaryText ,
                     style: secondaryStyle)],

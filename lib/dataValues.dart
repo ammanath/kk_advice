@@ -19,7 +19,10 @@ class DataValues {
           primaryText: 'Being enthusiastic is worth 25 IQ points.',
           secondaryText: '',
           description: '',
-          refIcon: getRandomIcon(),
+          refIcon: Icon(
+            Icons.favorite,
+            color: Colors.pink,
+          ),
           type: 'card'),
       ItemData(
           title: 'Advice',
@@ -27,7 +30,7 @@ class DataValues {
               'Always demand a deadline. A deadline weeds out the extraneous and the ordinary. It prevents you from trying to make it perfect, so you have to make it different. Different is better.',
           secondaryText: '',
           description: '',
-          refIcon: getRandomIcon(true),
+          refIcon: getRandomIcon(),
           type: 'card'),
       ItemData(
           title: 'Advice',
@@ -571,26 +574,27 @@ class DataValues {
       Colors.orange,
       Colors.black
     ];
-    int rndColor = Random().nextInt(clrs.length);
-    int codePoint = 59471 + Random().nextInt(100);
-    var colr = randomColor == true ? clrs[rndColor] : null;
+    if (randomColor == true) {
+      int rndColor = Random().nextInt(clrs.length);
+      int codePoint = 59471 + Random().nextInt(100);
+      var colr = randomColor == true ? clrs[rndColor] : null;
 
-    var icon = Icon(
-      IconData(codePoint, fontFamily: 'MaterialIcons'),
-      color: colr,
-    );
-    if(randomColor==true){
+      var icon = Icon(
+        IconData(codePoint, fontFamily: 'MaterialIcons'),
+        color: colr,
+      );
+
       return icon;
-    }else{
+    } else {
       return null;
     }
   }
 
   static Widget buildCountIcon(int i, ItemData element) {
     var wd;
-    if(element.refIcon==null){
-    wd = RoundedLetter.withRedCircle('$i', 30, 15);
-    }else{
+    if (element.refIcon == null) {
+      wd = RoundedLetter.withRedCircle('$i', 30, 15);
+    } else {
       wd = element.refIcon;
     }
     return wd;

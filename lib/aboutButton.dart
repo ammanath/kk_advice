@@ -21,8 +21,10 @@ class AboutButton extends StatelessWidget {
     var textAbout =
         "Unsolicited app on KK's 68 bits of unsolicitied life advice \n";
     String moreDetails = 'More Details: https://kk.org/thetechnium/68-bits-of-unsolicited-advice/ ';
-    String youTube ='\nListen - https://www.youtube.com/watch?v=Zz70rcguxwk';
-    String email = "\nFeedback: kkapp@ammanath.com";
+    String listen ='\nListen:';
+    String youTube =' https://www.youtube.com/watch?v=Zz70rcguxwk';
+    String fb = "\nFeedback:";
+    String email = " kkapp@ammanath.com";
     String thanks =  "\nThanks for trying my app! ";
     String signature = "\n\n- Brijesh";
     showDialog(
@@ -37,7 +39,7 @@ class AboutButton extends StatelessWidget {
             content: Text.rich(
               TextSpan(
                 text: textAbout[0],
-                style: GoogleFonts.kalam(
+                style: GoogleFonts.mali(
                   color: Colors.black54,
                   letterSpacing: .5,
                   fontSize: 22,
@@ -45,27 +47,37 @@ class AboutButton extends StatelessWidget {
                 children: [
                   TextSpan(
                     text: textAbout.substring(1),
-                    style: GoogleFonts.kalam(fontSize: 12, color: Colors.black54),
+                    style: GoogleFonts.mali(fontSize: 14, color: Colors.black54),
                   ),
                   TextSpan(
                     text: moreDetails,
-                    style: GoogleFonts.kalam(fontSize: 12, color: Colors.black54),
+                    style: GoogleFonts.mali(fontSize: 14, color: Colors.black54),
                   ),
+                  TextSpan(
+                    text: fb,
+                    style: GoogleFonts.mali(fontSize: 12,  ),
+                  ),
+                  //TODO: Make email clickable
                   TextSpan(
                     text: email,
-                    style: GoogleFonts.marvel(fontSize: 12,  ),
+                    style: GoogleFonts.shadowsIntoLight(fontSize: 14, color: Colors.blue ),
                   ),
                   TextSpan(
+                    text: listen,
+                    style: GoogleFonts.mali(fontSize: 12, ),
+                  ),
+                  //TODO: Show a youtube icon and make it clickable
+                  TextSpan(
                     text: youTube,
-                    style: GoogleFonts.marvel(fontSize: 12, ),
+                    style: GoogleFonts.mali(fontSize: 12, color: Colors.pink ),
                   ),
                   TextSpan(
                     text: thanks,
-                    style: GoogleFonts.kalam(fontSize: 12, color: Colors.black54),
+                    style: GoogleFonts.mali(fontSize: 12, color: Colors.black54),
                   ),
                   TextSpan(
                     text: signature,
-                    style: GoogleFonts.dancingScript(fontSize: 20, color: Colors.blueGrey),
+                    style: GoogleFonts.dancingScript(fontSize: 20, color: Colors.blue),
                   )
                 ],
               ),

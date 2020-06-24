@@ -22,14 +22,14 @@ dependencies:
   animated_text_kit: ^2.0.0
   google_fonts: ^1.1.0
   # //https://pub.dev/packages/scrollable_positioned_list#-readme-tab-
-  flutter_launcher_icons: ^0.7.4
+  flutter_launcher_icons: ^0.7.5
   
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter_icons:
-  ##image_path: "images/agile1.png"
+  image_path: "assets/logo/logo_transparent.png"
   android: true
 
 

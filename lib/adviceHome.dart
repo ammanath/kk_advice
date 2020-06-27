@@ -6,8 +6,14 @@ import 'package:kk_advice/dataValues.dart';
 import 'package:kk_advice/itemData.dart';
 import 'package:kk_advice/reviewButton.dart';
 
-class AdviceHome extends StatelessWidget {
+class AdviceHome extends StatefulWidget {
+  @override
+  _AdviceHomeState createState() => _AdviceHomeState();
+}
+
+class _AdviceHomeState extends State<AdviceHome> {
   final dataKey = new GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     final List<ItemData> listOfItems = DataValues().getItemValues();
@@ -43,14 +49,23 @@ class AdviceHome extends StatelessWidget {
               ReviewButton(),
               AboutButton(),
             ]),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              new Card(
-                key: dataKey,
-              ),
-              dlw,
-            ],
+        body: RefreshIndicator(
+          onRefresh: () async {
+            await Future.delayed(const Duration(seconds: 2));
+            setState(() {
+              //_articles?.removeAt(0);
+            });
+            return;
+          },
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                new Card(
+                  key: dataKey,
+                ),
+                dlw,
+              ],
+            ),
           ),
         ),
         backgroundColor: Colors.lightBlue[800],
@@ -98,28 +113,14 @@ class DataSearch extends SearchDelegate<ItemData> {
     final List<ItemData> suggestionList = query.isEmpty
         ? cities.sublist(5, 8)
         : cities
-            .where((element) => element.primaryText
-                .toLowerCase()
-                .contains(query.toLowerCase()))
-            ?.toList(); 
+            .where((element) =>
+                element.primaryText.toLowerCase().contains(query.toLowerCase()))
+            ?.toList();
     var dlw = DataListWidget(
       itemDataList: suggestionList,
     );
 
     return SingleChildScrollView(child: dlw);
-
-    // return ListView.builder(
-    //   itemBuilder: (context, index) => ListTile(
-    //     onTap: () {
-    //       query = suggestionList[index].primaryText;
-    //       close(context, suggestionList[index]);
-    //       //showResults(context);
-    //     },
-    //     leading: Icon(Icons.location_city),
-    //     title: Text(suggestionList[index].primaryText),
-    //   ),
-    //   itemCount: suggestionList.length,
-    // );
   }
 
   @override

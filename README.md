@@ -1,16 +1,15 @@
 # kk_advice
 
-A new Flutter project.
+An unsolicited application giving details of the 68 bits of unsolicited advice given by KK on his 68th birthday.
+You can read it here: https://kk.org/thetechnium/68-bits-of-unsolicited-advice/ 
+You can listen to it here: https://www.youtube.com/watch?v=Zz70rcguxwk
+You can give me feedbck here: kkapp@ammanath.com
 
-## Getting Started
+## About the application
 
-This project is a starting point for a Flutter application.
+A pretty simple  application that lists out the 68 bits of advice. 
+I plan to use it for reference and as a quick read when the mind wanders.
 
-A few resources to get you started if this is your first Flutter project:
+ 'You are what you do. Not what you say, not what you believe, not how you vote, but what you spend your time on.'
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

@@ -74,11 +74,6 @@ class _AdviceHomeState extends State<AdviceHome> {
           );
         }
       
-
-      
-      
-
-      
         getTextStyle() {
           if (refreshed) {
             return GoogleFonts.kalam(fontSize: 14, color: Colors.black, );

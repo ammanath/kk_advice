@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:kk_advice/adviceCard.dart';
 import 'package:kk_advice/headerText.dart';
 import 'package:kk_advice/itemData.dart';
@@ -7,9 +8,11 @@ class DataCardWidget extends StatelessWidget {
   const DataCardWidget({
     Key key,
     @required this.itemList,
+    @required this.textStyle,
   }) : super(key: key);
 
   final Iterable<ItemData> itemList;
+  final TextStyle textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,7 @@ class DataCardWidget extends StatelessWidget {
         if(element.refIcon==null){
           element.refIcon=defaultIcon;
         }
-        children.add(AdviceCardWidget(itemData: element));
+        children.add(AdviceCardWidget(itemData: element, textStyle:textStyle ,));
       }
     });
     return Card(

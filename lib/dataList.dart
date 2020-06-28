@@ -8,9 +8,11 @@ class DataListWidget extends StatelessWidget {
   DataListWidget({
     Key key,
     @required this.itemDataList,
+    @required this.textStyle,
   }) : super(key: key);
 
   final List<ItemData> itemDataList;
+  final TextStyle textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class DataListWidget extends StatelessWidget {
                     temp.add(element);
                   }
                   if ((title != element.title) || element == last) {
-                    dataCardWidget = DataCardWidget(itemList: temp);
+                    dataCardWidget = DataCardWidget(itemList: temp, textStyle: textStyle,);
                     widgets.add(dataCardWidget);
                     temp = [];
                     title = element.title;

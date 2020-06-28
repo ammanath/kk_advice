@@ -6,9 +6,11 @@ class AdviceCardWidget extends StatelessWidget {
   const AdviceCardWidget({
     Key key,
     @required this.itemData,
+    @required this.textStyle,
   }) : super(key: key);
 
   final ItemData itemData;
+  final TextStyle textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class AdviceCardWidget extends StatelessWidget {
               title: Text.rich(
                 TextSpan(
                   text: itemData.primaryText,
-                  style: GoogleFonts.kalam(fontSize: 14, color: Colors.black, ),
+                  style: textStyle, //GoogleFonts.kalam(fontSize: 14, color: Colors.black, ),
                   children: [TextSpan(
                     text:' ' + itemData.secondaryText ,
                     style: secondaryStyle)],

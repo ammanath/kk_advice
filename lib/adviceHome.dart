@@ -13,65 +13,80 @@ class AdviceHome extends StatefulWidget {
 
 class _AdviceHomeState extends State<AdviceHome> {
   final dataKey = new GlobalKey();
-
+  bool refreshed = false;
   @override
   Widget build(BuildContext context) {
     final List<ItemData> listOfItems = DataValues().getItemValues();
     var dlw = DataListWidget(
       itemDataList: listOfItems,
-    );
-
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-            title: Text(
-              'KK Advice',
-              style: GoogleFonts.kalam(fontSize: 26, color: Colors.black),
-            ),
-            actions: <Widget>[
-              IconButton(
-                  icon: Icon(Icons.home),
-                  color: Colors.orange,
-                  onPressed: () =>
-                      Scrollable.ensureVisible(dataKey.currentContext) //Top
+      textStyle: getTextStyle(),
+          );
+      
+          return SafeArea(
+            child: Scaffold(
+              appBar: AppBar(
+                  title: Text(
+                    'KK Advice',
+                    style: GoogleFonts.kalam(fontSize: 26, color: Colors.black),
                   ),
-              IconButton(
-                icon: Icon(Icons.find_in_page),
-                color: Colors.white,
-                onPressed: () async {
-                  final ItemData selected = await showSearch<ItemData>(
-                      context: context, delegate: DataSearch());
-                  if (selected != null) {
-                    print("Item selected is: $selected");
-                  }
+                  actions: <Widget>[
+                    IconButton(
+                        icon: Icon(Icons.home),
+                        color: Colors.orange,
+                        onPressed: () =>
+                            Scrollable.ensureVisible(dataKey.currentContext) //Top
+                        ),
+                    IconButton(
+                      icon: Icon(Icons.find_in_page),
+                      color: Colors.white,
+                      onPressed: () async {
+                        final ItemData selected = await showSearch<ItemData>(
+                            context: context, delegate: DataSearch());
+                        if (selected != null) {
+                          print("Item selected is: $selected");
+                        }
+                      },
+                    ),
+                    ReviewButton(),
+                    AboutButton(),
+                  ]),
+              body: RefreshIndicator(
+                onRefresh: () async {
+                  await Future.delayed(const Duration(seconds: 2));
+                  setState(() {
+                    refreshed = !refreshed;
+                  });
+                  return;
                 },
-              ),
-              ReviewButton(),
-              AboutButton(),
-            ]),
-        body: RefreshIndicator(
-          onRefresh: () async {
-            await Future.delayed(const Duration(seconds: 2));
-            setState(() {
-              //_articles?.removeAt(0);
-            });
-            return;
-          },
-          child: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                new Card(
-                  key: dataKey,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      new Card(
+                        key: dataKey,
+                      ),
+                      dlw,
+                    ],
+                  ),
                 ),
-                dlw,
-              ],
+              ),
+              backgroundColor: Colors.lightBlue[800],
             ),
-          ),
-        ),
-        backgroundColor: Colors.lightBlue[800],
-      ),
-    );
-  }
+          );
+        }
+      
+
+      
+      
+
+      
+        getTextStyle() {
+          if (refreshed) {
+            return GoogleFonts.kalam(fontSize: 14, color: Colors.black, );
+          } else {
+            return GoogleFonts.amarante(fontSize: 14, color: Colors.black, );
+          }
+          
+        }
 }
 
 class DataSearch extends SearchDelegate<ItemData> {

@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kk_advice/aboutButton.dart';
 import 'package:kk_advice/dataList.dart';
+import 'package:kk_advice/dataSearch.dart';
 import 'package:kk_advice/dataValues.dart';
+import 'package:kk_advice/homeButton.dart';
 import 'package:kk_advice/itemData.dart';
 import 'package:kk_advice/reviewButton.dart';
+import 'package:kk_advice/searchButton.dart';
 
 class AdviceHome extends StatefulWidget {
   @override
@@ -14,128 +17,65 @@ class AdviceHome extends StatefulWidget {
 class _AdviceHomeState extends State<AdviceHome> {
   final dataKey = new GlobalKey();
   bool refreshed = false;
+  final List<ItemData> listOfItems = DataValues().getItemValues();
+
   @override
   Widget build(BuildContext context) {
-    final List<ItemData> listOfItems = DataValues().getItemValues();
-    var dlw = DataListWidget(
-      itemDataList: listOfItems,
-      textStyle: getTextStyle(),
-          );
-      
-          return SafeArea(
-            child: Scaffold(
-              appBar: AppBar(
-                  title: Text(
-                    'KK Advice',
-                    style: GoogleFonts.kalam(fontSize: 26, color: Colors.black),
-                  ),
-                  actions: <Widget>[
-                    IconButton(
-                        icon: Icon(Icons.home),
-                        color: Colors.orange,
-                        onPressed: () =>
-                            Scrollable.ensureVisible(dataKey.currentContext) //Top
-                        ),
-                    IconButton(
-                      icon: Icon(Icons.find_in_page),
-                      color: Colors.white,
-                      onPressed: () async {
-                        final ItemData selected = await showSearch<ItemData>(
-                            context: context, delegate: DataSearch());
-                        if (selected != null) {
-                          print("Item selected is: $selected");
-                        }
-                      },
-                    ),
-                    ReviewButton(),
-                    AboutButton(),
-                  ]),
-              body: RefreshIndicator(
-                onRefresh: () async {
-                  await Future.delayed(const Duration(seconds: 2));
-                  setState(() {
-                    refreshed = !refreshed;
-                  });
-                  return;
-                },
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: <Widget>[
-                      new Card(
-                        key: dataKey,
-                      ),
-                      dlw,
-                    ],
-                  ),
-                ),
-              ),
-              backgroundColor: Colors.lightBlue[800],
+    DataListWidget dlw =
+        DataListWidget(itemDataList: listOfItems, textStyle: getTextStyle());
+
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+            title: Text(
+              'KK Advice',
+              style: GoogleFonts.kalam(fontSize: 26, color: Colors.black),
             ),
-          );
-        }
-      
-        getTextStyle() {
-          if (refreshed) {
-            return GoogleFonts.kalam(fontSize: 14, color: Colors.black, );
-          } else {
-            return GoogleFonts.amarante(fontSize: 14, color: Colors.black, );
-          }
-          
-        }
-}
-
-class DataSearch extends SearchDelegate<ItemData> {
-  final List<ItemData> cities = DataValues()
-      .getItemValues()
-      .where((item) => item.type != 'title')
-      .toList();
-
-  @override
-  List<Widget> buildActions(BuildContext context) {
-    return [
-      IconButton(
-          icon: Icon(Icons.cancel),
-          onPressed: () {
-            query = "";
-          })
-    ];
-  }
-
-  @override
-  Widget buildLeading(BuildContext context) {
-    return IconButton(
-        icon: AnimatedIcon(
-            icon: AnimatedIcons.menu_arrow, progress: transitionAnimation),
-        onPressed: () {
-          close(context, null);
-        });
-  }
-
-  @override
-  Widget buildResults(BuildContext context) {
-    print(context.widget.toString() + query);
-
-    return Text('Searched for $query');
-  }
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    final List<ItemData> suggestionList = query.isEmpty
-        ? cities.sublist(5, 8)
-        : cities
-            .where((element) =>
-                element.primaryText.toLowerCase().contains(query.toLowerCase()))
-            ?.toList();
-    var dlw = DataListWidget(
-      itemDataList: suggestionList,
+            actions: <Widget>[
+              HomeButton(dataKey: dataKey),
+              SearchButton(),
+              ReviewButton(),
+              AboutButton(),
+            ]),
+        body: RefreshIndicator(
+          onRefresh: () async {
+            await Future.delayed(const Duration(seconds: 2));
+            setState(() {
+              refreshed = !refreshed;
+            });
+            return;
+          },
+          child: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                new Card(
+                  key: dataKey,
+                ),
+                dlw,
+              ],
+            ),
+          ),
+        ),
+        backgroundColor: Colors.lightBlue[800],
+      ),
     );
-
-    return SingleChildScrollView(child: dlw);
   }
 
-  @override
-  ThemeData appBarTheme(BuildContext context) {
-    final theme = Theme.of(context);
-    return theme;
+  getTextStyle() {
+    if (refreshed) {
+      return GoogleFonts.kalam(
+        fontSize: 14,
+        color: Colors.black,
+      );
+    } else {
+      return GoogleFonts.amarante(
+        fontSize: 14,
+        color: Colors.black,
+      );
+    }
   }
 }
+
+
+
+

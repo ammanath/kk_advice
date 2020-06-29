@@ -70,7 +70,7 @@ class _AdviceHomeState extends State<AdviceHome> {
     } else {
       return GoogleFonts.amarante(
         fontSize: 14,
-        color: Colors.black,
+        color: Colors.white70,
       );
     }
   }

@@ -44,9 +44,4 @@ class DataListWidget extends StatelessWidget {
                 children: widgets,
               );
             }
-
-            
-          
-            
-
 }

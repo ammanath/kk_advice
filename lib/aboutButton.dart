@@ -43,7 +43,6 @@ class AboutButton extends StatelessWidget {
                 text: textAbout[0],
                 style: GoogleFonts.rumRaisin(
                   color: Colors.black54,
-                  //letterSpacing: .5,
                   fontSize: 22,
                 ),
                 children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:kk_advice/dataList.dart';
 import 'package:kk_advice/dataValues.dart';
 import 'package:kk_advice/itemData.dart';
@@ -45,6 +46,7 @@ class DataSearch extends SearchDelegate<ItemData> {
             ?.toList();
     var dlw = DataListWidget(
       itemDataList: suggestionList,
+      textStyle: GoogleFonts.kalam(fontSize: 14, color: Colors.black, ),
     );
     return SingleChildScrollView(child: dlw);
   }

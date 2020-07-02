@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kk_advice/aboutButton.dart';
 import 'package:kk_advice/dataList.dart';
-import 'package:kk_advice/dataSearch.dart';
 import 'package:kk_advice/dataValues.dart';
 import 'package:kk_advice/homeButton.dart';
 import 'package:kk_advice/itemData.dart';

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kk_advice/dataCard.dart';
 import 'package:kk_advice/dataValues.dart';
 import 'package:kk_advice/itemData.dart';
-import 'package:rounded_letter/rounded_letter.dart';
 
 class DataListWidget extends StatelessWidget {
   DataListWidget({

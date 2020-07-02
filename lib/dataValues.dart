@@ -561,7 +561,8 @@ class DataValues {
           refIcon: getRandomIcon(),
           type: 'card'),
     ];
-
+    dummy = null;
+    
     return advice;
   }
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:kk_advice/adviceCard.dart';
 import 'package:kk_advice/headerText.dart';
 import 'package:kk_advice/itemData.dart';

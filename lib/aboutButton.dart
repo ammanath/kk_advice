@@ -72,18 +72,21 @@ class AboutButton extends StatelessWidget {
                 icon: Icon(Icons.open_in_browser),
                 color: Colors.red,
                 alignment: Alignment.bottomLeft,
+                tooltip: 'Read in browser',
                 onPressed: () => _launchURL(url),
               ),
               IconButton(
                 icon: Icon(Icons.feedback),
                 color: Colors.pink,
                 alignment: Alignment.bottomLeft,
+                tooltip: 'email',
                 onPressed: () => _launchURL(email),
               ),
               IconButton(
                 icon: Icon(Icons.videocam),
                 color: Colors.green,
                 alignment: Alignment.bottomLeft,
+                tooltip: 'YouTube',
                 onPressed: () => _launchURL(youTube),
               ),
               RaisedButton(

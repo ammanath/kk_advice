@@ -40,7 +40,7 @@ class AdviceCardWidget extends StatelessWidget {
                         }),
                   },
                   ),
-          color: Colors.lightBlue[600],
+          color: Colors.orange[600],
         ),
       ),
     );

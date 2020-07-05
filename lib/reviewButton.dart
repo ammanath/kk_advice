@@ -11,7 +11,7 @@ class ReviewButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       icon: Icon(Icons.star),
-      color: Colors.pink[200],
+      color: Colors.pink[800],
       onPressed: () {
         show(context);
       },
@@ -27,7 +27,7 @@ class ReviewButton extends StatelessWidget {
             icon: const Icon(
               Icons.star,
               size: 100,
-              color: Colors.blue,
+              color: Colors.deepOrange,
             ), // set your own image/icon widget
             title: "Enjoying the KK Advice app?",
             description: "Tap a star to give your rating.",

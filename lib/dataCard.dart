@@ -29,6 +29,6 @@ class DataCardWidget extends StatelessWidget {
       }
     });
     return Card(
-        color: Colors.lightBlue[800], child: Column(children: children));
+        color: Colors.orange[800], child: Column(children: children));
   }
 }

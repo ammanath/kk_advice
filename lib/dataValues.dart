@@ -572,7 +572,7 @@ class DataValues {
       Colors.amber,
       Colors.green,
       Colors.lime,
-      Colors.orange,
+      Colors.blue,
       Colors.black
     ];
     if (randomColor == true) {
@@ -594,7 +594,7 @@ class DataValues {
   static Widget buildCountIcon(int i, ItemData element) {
     var wd;
     if (element.refIcon == null) {
-      wd = RoundedLetter.withRedCircle('$i', 30, 15);
+      wd = RoundedLetter.withBlueCircle('$i', 30, 15);
     } else {
       wd = element.refIcon;
     }

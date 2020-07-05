@@ -14,7 +14,7 @@ class PopUpTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-        backgroundColor: Colors.indigo[50],
+        backgroundColor: Colors.deepOrange[100],
         content: DisplayWidget(dataText: dataText));
   }
 }
@@ -48,7 +48,7 @@ class DisplayWidget extends StatelessWidget {
       pause: Duration(milliseconds: 1500),
       speed: Duration(milliseconds: 60),
       textStyle: GoogleFonts.vt323(
-        color: Colors.blue,
+        color: Colors.deepOrange,
         letterSpacing: .5,
         fontSize: dataText.type == 'title' ? 22 : 22,
       ),

@@ -20,7 +20,7 @@ class AboutButton extends StatelessWidget {
 
   void showAboutDialog(BuildContext context) {
     String textAbout =
-        'Unsolicited app on KK\'s 68 bits of unsolicitied life advice \n';
+        'Unsolicited app on KK\'s 68 bits of unsolicited  life advice \n';
     String url =
         'https://kk.org/thetechnium/68-bits-of-unsolicited-advice/ ';
     String youTube = 'https://www.youtube.com/watch?v=Zz70rcguxwk';
@@ -36,37 +36,37 @@ class AboutButton extends StatelessWidget {
                 child: Text("About this app",
                     style: GoogleFonts.amarante(
                       fontSize: 26,
-                      color: Colors.black54,
+                      color: Colors.deepOrange,
                     ))),
             content: Text.rich(
               TextSpan(
                 text: textAbout[0],
                 style: GoogleFonts.rumRaisin(
-                  color: Colors.black54,
+                  color: Colors.deepOrange,
                   fontSize: 22,
                 ),
                 children: [
                   TextSpan(
                     text: textAbout.substring(1),
                     style:
-                        GoogleFonts.rumRaisin(fontSize: 14, color: Colors.black54),
+                        GoogleFonts.dancingScript(fontSize: 18, color: Colors.deepOrange),
                   ),
 
                   TextSpan(
                     text: thanks,
                     style:
-                        GoogleFonts.rumRaisin(fontSize: 14, color: Colors.black54),
+                        GoogleFonts.dancingScript(fontSize: 18, color: Colors.deepOrange),
                   ),
                   TextSpan(
                     text: signature,
                     style: GoogleFonts.dancingScript(
-                        fontSize: 20, color: Colors.blue),
+                        fontSize: 20, color: Colors.deepOrange[600]),
                   )
                 ],
               ),
             ),
             elevation: 24.0,
-            backgroundColor: Colors.blue[100],
+            backgroundColor: Colors.orange[50],
             actions: <Widget>[
               IconButton(
                 icon: Icon(Icons.open_in_browser),
@@ -93,13 +93,12 @@ class AboutButton extends StatelessWidget {
                 child: Text('Ok',
                     style: GoogleFonts.amarante(
                       fontSize: 26,
-                      color: Colors.black,
+                      color: Colors.deepOrange,
                     )),
-                textColor: Colors.blue,
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                color: Colors.blue[100],
+                color: Colors.orange[50],
               ),
             ],
           );

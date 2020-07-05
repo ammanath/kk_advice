@@ -9,10 +9,8 @@ class KKAdviceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'KK Advice',
-      
       theme: ThemeData(
-        primarySwatch: Colors.lightBlue,
+        primarySwatch: Colors.deepOrange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: AdviceHome(),
@@ -20,5 +18,3 @@ class KKAdviceApp extends StatelessWidget {
     );
   }
 }
-
-

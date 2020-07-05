@@ -12,7 +12,7 @@ class HomeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
         icon: Icon(Icons.home),
-        color: Colors.orange,
+        color: Colors.yellow,
         onPressed: () =>
             Scrollable.ensureVisible(dataKey.currentContext) //Top
         );

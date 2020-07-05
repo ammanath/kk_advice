@@ -1,5 +1,5 @@
 # kk_advice
-KK's 68 Bits of Unsolicited Advice
+KK's 68 Bits of Unsolicited Advice v0.0.1
 
 ## Short Description
 Unsolicited app on KK's 68 bits of unsolicited life advice
@@ -23,4 +23,12 @@ I plan to use it for reference and as a quick read when the mind wanders.
 # Google Play Store
 https://play.google.com/apps/publish/
 
+https://flutter.dev/docs/deployment/android
 
+keytool -genkey -v -keystore [..working folder..]\key.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias key
+
+To Create AppBundle:
+C:\working\FlutterProjs\kk_advice> flutter build appbundle --no-tree-shake-icons
+
+The release bundle for your app is created at 
+C:\working\FlutterProjs\kk_advice\build\app\outputs\bundle\release

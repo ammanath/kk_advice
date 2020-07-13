@@ -31,10 +31,9 @@ class DisplayWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     if (dataText.type == 'title') {
       return normalTextDialog();
-    } else if(dataText.secondaryText.length>200){
+    } else if (dataText.secondaryText.length > 200) {
       return normalTextDialog();
-    }
-    else {
+    } else {
       return buildTypewriterAnimatedText();
     }
   }
@@ -47,10 +46,11 @@ class DisplayWidget extends StatelessWidget {
       totalRepeatCount: 4,
       pause: Duration(milliseconds: 1500),
       speed: Duration(milliseconds: 60),
-      textStyle: GoogleFonts.vt323(
+      textStyle: TextStyle(
+        fontFamily: 'Typewriter',
         color: Colors.deepOrange,
         letterSpacing: .5,
-        fontSize: dataText.type == 'title' ? 22 : 22,
+        fontSize: 22,
       ),
       displayFullTextOnTap: true,
       stopPauseOnTap: true,
@@ -58,7 +58,8 @@ class DisplayWidget extends StatelessWidget {
   }
 
   Widget normalTextDialog() {
-    var text = '${dataText.primaryText==''?'':dataText.primaryText + ' '}${dataText.secondaryText==''?'':dataText.secondaryText + ' '}${dataText.description}';
+    var text =
+        '${dataText.primaryText == '' ? '' : dataText.primaryText + ' '}${dataText.secondaryText == '' ? '' : dataText.secondaryText + ' '}${dataText.description}';
     return SingleChildScrollView(
       child: Text.rich(
         TextSpan(

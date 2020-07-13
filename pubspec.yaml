@@ -4,7 +4,7 @@ description: 68 Bits of Unsolicited Advice from KK
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 
-version: 1.0.0+1
+version: 1.0.0+2
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -35,6 +35,26 @@ flutter_icons:
 
 flutter:
   uses-material-design: true
-
+  fonts:
+    - family: Amarante     
+      fonts:
+        - asset: assets/fonts/Amarante_script.ttf
+    - family: BadScript     
+      fonts:
+        - asset: assets/fonts/BadScript.ttf
+    - family: DancingScript     
+      fonts:
+        - asset: assets/fonts/DancingScript.ttf
+    - family: Satisfy     
+      fonts:
+        - asset: assets/fonts/Satisfy.ttf      
+    - family: Typewriter     
+      fonts:
+        - asset: assets/fonts/VT323.ttf           
+    - family: Fondamento     
+      fonts:
+        - asset: assets/fonts/fondamentoReg.ttf
+        - asset: assets/fonts/fondamentoIta.ttf
+          style: italic
 
 

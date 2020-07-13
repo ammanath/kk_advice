@@ -21,12 +21,13 @@ class AboutButton extends StatelessWidget {
   void showAboutDialog(BuildContext context) {
     String textAbout =
         'Unsolicited app on KK\'s 68 bits of unsolicited  life advice \n';
-    String url =
-        'https://kk.org/thetechnium/68-bits-of-unsolicited-advice/ ';
+    String url = 'https://kk.org/thetechnium/68-bits-of-unsolicited-advice/ ';
     String youTube = 'https://www.youtube.com/watch?v=Zz70rcguxwk';
     String email = 'mailto:kkapp@ammanath.com?subject=Feedback_about_kkapp';
     String thanks = '\nThanks for trying my app! ';
     String signature = '\n\n- Brijesh';
+    String version = '\nv1.2';
+
     showDialog(
         context: context,
         barrierDismissible: true,
@@ -48,19 +49,23 @@ class AboutButton extends StatelessWidget {
                 children: [
                   TextSpan(
                     text: textAbout.substring(1),
-                    style:
-                        GoogleFonts.dancingScript(fontSize: 18, color: Colors.deepOrange),
+                    style: GoogleFonts.dancingScript(
+                        fontSize: 18, color: Colors.deepOrange),
                   ),
-
                   TextSpan(
                     text: thanks,
-                    style:
-                        GoogleFonts.dancingScript(fontSize: 18, color: Colors.deepOrange),
+                    style: GoogleFonts.dancingScript(
+                        fontSize: 18, color: Colors.deepOrange),
                   ),
                   TextSpan(
                     text: signature,
                     style: GoogleFonts.dancingScript(
                         fontSize: 20, color: Colors.deepOrange[600]),
+                  ),
+                  TextSpan(
+                    text: version,
+                    style: GoogleFonts.dancingScript(
+                        fontSize: 8, color: Colors.deepOrange[600]),
                   )
                 ],
               ),

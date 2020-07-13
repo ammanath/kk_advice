@@ -32,3 +32,6 @@ C:\working\FlutterProjs\kk_advice> flutter build appbundle --no-tree-shake-icons
 
 The release bundle for your app is created at 
 C:\working\FlutterProjs\kk_advice\build\app\outputs\bundle\release
+
+Privacy: http://www.ammanath.com/kkprivacy.html
+

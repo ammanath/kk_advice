@@ -28,7 +28,9 @@ class _AdviceHomeState extends State<AdviceHome> {
         appBar: AppBar(
             title: Text(
               'KK Advice',
-              style: GoogleFonts.kalam(fontSize: 26, color: Colors.black),
+              style: TextStyle(
+                  fontFamily: 'DancingScript',
+                )
             ),
             actions: <Widget>[
               HomeButton(dataKey: dataKey),

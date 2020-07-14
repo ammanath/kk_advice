@@ -27,7 +27,10 @@ https://flutter.dev/docs/deployment/android
 
 keytool -genkey -v -keystore [..working folder..]\key.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias key
 
-To Create AppBundle:
+# To Create AppBundle:
+Update version in pubspecl.yaml
+Update version in aboutButton.dart
+
 C:\working\FlutterProjs\kk_advice> flutter build appbundle --no-tree-shake-icons
 
 The release bundle for your app is created at 

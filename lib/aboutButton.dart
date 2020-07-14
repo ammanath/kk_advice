@@ -26,7 +26,7 @@ class AboutButton extends StatelessWidget {
     String email = 'mailto:kkapp@ammanath.com?subject=Feedback_about_kkapp';
     String thanks = '\nThanks for trying my app! ';
     String signature = '\n\n- Brijesh';
-    String version = '\nv1.2';
+    String version = '\nv1.3';
 
     showDialog(
         context: context,
@@ -35,37 +35,50 @@ class AboutButton extends StatelessWidget {
           return AlertDialog(
             title: Center(
                 child: Text("About this app",
-                    style: GoogleFonts.amarante(
+                    style: TextStyle(
+                      fontFamily: 'Fondamento',
                       fontSize: 26,
                       color: Colors.deepOrange,
                     ))),
             content: Text.rich(
               TextSpan(
                 text: textAbout[0],
-                style: GoogleFonts.rumRaisin(
-                  color: Colors.deepOrange,
+                style: TextStyle(
+                  fontFamily: 'Fondamento',
                   fontSize: 22,
+                  color: Colors.deepOrange,
                 ),
                 children: [
                   TextSpan(
-                    text: textAbout.substring(1),
-                    style: GoogleFonts.dancingScript(
-                        fontSize: 18, color: Colors.deepOrange),
-                  ),
+                      text: textAbout.substring(1),
+                      style: TextStyle(
+                        fontFamily: 'Fondamento',
+                        fontSize: 18,
+                        color: Colors.deepOrange,
+                      )),
                   TextSpan(
                     text: thanks,
-                    style: GoogleFonts.dancingScript(
-                        fontSize: 18, color: Colors.deepOrange),
+                    style: TextStyle(
+                      fontFamily: 'Fondamento',
+                      fontSize: 18,
+                      color: Colors.deepOrange,
+                    ),
                   ),
                   TextSpan(
                     text: signature,
-                    style: GoogleFonts.dancingScript(
-                        fontSize: 20, color: Colors.deepOrange[600]),
+                    style: TextStyle(
+                      fontFamily: 'Satisfy',
+                      fontSize: 20,
+                      color: Colors.deepOrange[600],
+                    ),
                   ),
                   TextSpan(
                     text: version,
-                    style: GoogleFonts.dancingScript(
-                        fontSize: 8, color: Colors.deepOrange[600]),
+                    style: TextStyle(
+                      fontFamily: 'Satisfy',
+                      fontSize: 8,
+                      color: Colors.deepOrange[600],
+                    ),
                   )
                 ],
               ),

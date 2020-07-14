@@ -4,7 +4,7 @@ description: 68 Bits of Unsolicited Advice from KK
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 
-version: 1.0.0+2
+version: 1.0.0+3
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -50,7 +50,13 @@ flutter:
         - asset: assets/fonts/Satisfy.ttf      
     - family: Typewriter     
       fonts:
-        - asset: assets/fonts/VT323.ttf           
+        - asset: assets/fonts/VT323.ttf        
+    - family: School     
+      fonts:
+        - asset: assets/fonts/Schoolbell.ttf 
+    - family: Gugi     
+      fonts:
+        - asset: assets/fonts/Gugi.ttf               
     - family: Fondamento     
       fonts:
         - asset: assets/fonts/fondamentoReg.ttf

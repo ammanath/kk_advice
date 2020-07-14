@@ -26,12 +26,12 @@ class _AdviceHomeState extends State<AdviceHome> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-            title: Text(
-              'KK Advice',
-              style: TextStyle(
-                  fontFamily: 'DancingScript',
-                )
-            ),
+            title: Text('KK\'s Advice',
+                style: TextStyle(
+                  fontFamily: 'Gugi',
+                  fontSize: 22,
+                  color: Colors.white70,
+                )),
             actions: <Widget>[
               HomeButton(dataKey: dataKey),
               SearchButton(),
@@ -64,19 +64,25 @@ class _AdviceHomeState extends State<AdviceHome> {
 
   getTextStyle() {
     if (refreshed) {
-      return GoogleFonts.kalam(
-        fontSize: 14,
-        color: Colors.black,
+      // return GoogleFonts.schoolbell(
+      //   fontSize: 16,
+      //   color: Colors.black,
+      // );
+      return TextStyle(
+        fontFamily: 'School',
+        fontSize: 16,
+        color: Colors.black87,
       );
     } else {
-      return GoogleFonts.amarante(
+      return TextStyle(
+        fontFamily: 'Amarante',
         fontSize: 14,
         color: Colors.white70,
       );
+      // return GoogleFonts.amarante(
+      //   fontSize: 14,
+      //   color: Colors.white70,
+      // );
     }
   }
 }
-
-
-
-

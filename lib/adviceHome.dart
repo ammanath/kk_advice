@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:kk_advice/aboutButton.dart';
 import 'package:kk_advice/dataList.dart';
 import 'package:kk_advice/dataValues.dart';
@@ -64,10 +63,6 @@ class _AdviceHomeState extends State<AdviceHome> {
 
   getTextStyle() {
     if (refreshed) {
-      // return GoogleFonts.schoolbell(
-      //   fontSize: 16,
-      //   color: Colors.black,
-      // );
       return TextStyle(
         fontFamily: 'School',
         fontSize: 16,
@@ -79,10 +74,6 @@ class _AdviceHomeState extends State<AdviceHome> {
         fontSize: 14,
         color: Colors.white70,
       );
-      // return GoogleFonts.amarante(
-      //   fontSize: 14,
-      //   color: Colors.white70,
-      // );
     }
   }
 }

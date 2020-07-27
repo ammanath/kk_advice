@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:clipboard_manager/clipboard_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:kk_advice/itemData.dart';
@@ -13,6 +14,7 @@ class PopUpTextWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ClipboardManager.copyToClipBoard(dataText.toString());
     return AlertDialog(
         backgroundColor: Colors.deepOrange[100],
         content: DisplayWidget(dataText: dataText));

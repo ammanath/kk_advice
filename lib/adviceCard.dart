@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kk_advice/itemData.dart';
 import 'package:kk_advice/popUpText.dart';
+import 'package:share/share.dart';
+
 class AdviceCardWidget extends StatelessWidget {
   const AdviceCardWidget({
     Key key,
@@ -32,13 +34,18 @@ class AdviceCardWidget extends StatelessWidget {
                     style: secondaryStyle)],
                 
                 ),),
-              onTap: () => {
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return PopUpTextWidget( dataText: itemData,);
-                        }),
-                  },
+              // onTap: () => {
+              //       showDialog(
+              //           context: context,
+              //           builder: (context) {
+              //             return PopUpTextWidget( dataText: itemData,);
+              //           }),
+              //     },
+              onTap: (){
+                              Share.share(itemData.primaryText,
+                                  subject: "KK's Advice",
+                                  );
+                            },
                   ),
           color: Colors.orange[600],
         ),

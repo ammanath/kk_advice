@@ -10,6 +10,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  share: ^0.6.4+3
   clipboard_manager: ^0.0.4
   rounded_letter: ^0.0.5
   rating_dialog: ^1.0.0

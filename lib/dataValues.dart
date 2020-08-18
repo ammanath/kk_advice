@@ -598,6 +598,7 @@ class DataValues {
     if (element.refIcon == null) {
       //wd = RoundedLetter.withBlueCircle('$i', 30, 15);
       IconClickListener click = IconClickListener();
+      click.dataText = element.primaryText + '!!!';
       wd = RoundedLetter(
           text: '$i',
           shapeSize: 30,
@@ -612,12 +613,13 @@ class DataValues {
 }
 
 class IconClickListener extends ClickListener {
+  String dataText = 'Unable to source the text...';
   @override
   onClick(Key key) {
-    print('In IconClickListener $key');
-    // Share.share(
-    //               itemData.primaryText,
-    //               subject: "KK's Advice",
-    //             );
+    print('In IconClickListener $dataText');
+    Share.share(
+                  dataText,
+                  subject: "KK's Advice",
+                );
   }
 }

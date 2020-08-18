@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kk_advice/adviceCard.dart';
-import 'package:kk_advice/headerText.dart';
 import 'package:kk_advice/itemData.dart';
 
 class DataCardWidget extends StatelessWidget {
@@ -19,16 +18,17 @@ class DataCardWidget extends StatelessWidget {
     var defaultIcon;
     itemList.forEach((element) {
       if (element.type == 'title') {
-        children.add(HeaderTextWidget(itemData: element));
-        defaultIcon = element.refIcon;
+        print('Unexpected title card found!!! Skipping...');
       } else if (element.type == 'card') {
-        if(element.refIcon==null){
-          element.refIcon=defaultIcon;
+        if (element.refIcon == null) {
+          element.refIcon = defaultIcon;
         }
-        children.add(AdviceCardWidget(itemData: element, textStyle:textStyle ,));
+        children.add(AdviceCardWidget(
+          itemData: element,
+          textStyle: textStyle,
+        ));
       }
     });
-    return Card(
-        color: Colors.orange[800], child: Column(children: children));
+    return Card(color: Colors.orange[800], child: Column(children: children));
   }
 }

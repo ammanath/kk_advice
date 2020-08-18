@@ -24,34 +24,41 @@ class AdviceCardWidget extends StatelessWidget {
       child: Card(
         child: Container(
           child: ListTile(
-              leading: itemData.refIcon,
-              title: Text.rich(
-                TextSpan(
-                  text: itemData.primaryText,
-                  style: textStyle, //GoogleFonts.kalam(fontSize: 14, color: Colors.black, ),
-                  children: [TextSpan(
-                    text:' ' + itemData.secondaryText ,
-                    style: secondaryStyle)],
-                
-                ),),
-              // onTap: () => {
-              //       showDialog(
-              //           context: context,
-              //           builder: (context) {
-              //             return PopUpTextWidget( dataText: itemData,);
-              //           }),
-              //     },
-              onTap: (){
-                              Share.share(itemData.primaryText,
-                                  subject: "KK's Advice",
-                                  );
-                            },
-                  ),
+            leading: InkWell(
+              child: itemData.refIcon,
+              onTap: () {
+                print('In Inkwell tap');
+                Share.share(
+                  itemData.primaryText,
+                  subject: "KK's Advice",
+                );
+              },
+            ),
+            title: Text.rich(
+              TextSpan(
+                text: itemData.primaryText,
+                style:
+                    textStyle, //GoogleFonts.kalam(fontSize: 14, color: Colors.black, ),
+                children: [
+                  TextSpan(
+                      text: ' ' + itemData.secondaryText, style: secondaryStyle)
+                ],
+              ),
+            ),
+            onTap: () => {
+              print('In List Tap'),
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return PopUpTextWidget(
+                      dataText: itemData,
+                    );
+                  }),
+            },
+          ),
           color: Colors.orange[600],
         ),
       ),
     );
   }
-
-
 }

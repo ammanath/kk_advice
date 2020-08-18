@@ -1,7 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:kk_advice/itemData.dart';
+import 'package:rounded_letter/click_listener.dart';
 import 'package:rounded_letter/rounded_letter.dart';
+import 'package:share/share.dart';
 
 class DataValues {
   List<ItemData> getItemValues() {
@@ -562,7 +564,7 @@ class DataValues {
           type: 'card'),
     ];
     dummy = null;
-    
+
     return advice;
   }
 
@@ -594,10 +596,28 @@ class DataValues {
   static Widget buildCountIcon(int i, ItemData element) {
     var wd;
     if (element.refIcon == null) {
-      wd = RoundedLetter.withBlueCircle('$i', 30, 15);
+      //wd = RoundedLetter.withBlueCircle('$i', 30, 15);
+      IconClickListener click = IconClickListener();
+      wd = RoundedLetter(
+          text: '$i',
+          shapeSize: 30,
+          fontSize: 15,
+          shapeColor: Colors.red,
+          clickListener: click); //(text:'$i',shapeSize: 30,fontSize 15);
     } else {
       wd = element.refIcon;
     }
     return wd;
+  }
+}
+
+class IconClickListener extends ClickListener {
+  @override
+  onClick(Key key) {
+    print('In IconClickListener $key');
+    // Share.share(
+    //               itemData.primaryText,
+    //               subject: "KK's Advice",
+    //             );
   }
 }

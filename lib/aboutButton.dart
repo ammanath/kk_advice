@@ -26,7 +26,7 @@ class AboutButton extends StatelessWidget {
     String email = 'mailto:kkapp@ammanath.com?subject=Feedback_about_kkapp';
     String thanks = '\nThanks for trying my app! ';
     String signature = '\n\n- Brijesh';
-    String version = '\nv1.3';
+    String version = '\nv1.4';
 
     showDialog(
         context: context,

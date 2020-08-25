@@ -29,7 +29,7 @@ class AdviceCardWidget extends StatelessWidget {
               onTap: () {
                 print('In Inkwell tap');
                 Share.share(
-                  itemData.primaryText,
+                  '${itemData.primaryText} \n https://play.google.com/store/apps/details?id=com.ammanath.kk_advice \n #kkapp',
                   subject: "KK's Advice",
                 );
               },

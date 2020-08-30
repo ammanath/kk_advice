@@ -617,9 +617,13 @@ class IconClickListener extends ClickListener {
   @override
   onClick(Key key) {
     print('In IconClickListener $dataText');
+
+    var msg =
+        '$dataText \t https://play.google.com/store/apps/details?id=com.ammanath.kk_advice \t #kkapp';
     Share.share(
-                  dataText,
-                  subject: "KK's Advice",
-                );
+      msg,
+      subject: "KK's Advice",
+    );
+    print('Blank : $msg');
   }
 }

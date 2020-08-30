@@ -28,10 +28,14 @@ class AdviceCardWidget extends StatelessWidget {
               child: itemData.refIcon,
               onTap: () {
                 print('In Inkwell tap');
+
+                var msg =
+                    '${itemData.primaryText} \n https://play.google.com/store/apps/details?id=com.ammanath.kk_advice \n #kkapp';
                 Share.share(
-                  '${itemData.primaryText} \n https://play.google.com/store/apps/details?id=com.ammanath.kk_advice \n #kkapp',
+                  msg,
                   subject: "KK's Advice",
                 );
+                print('Text : $msg');
               },
             ),
             title: Text.rich(
